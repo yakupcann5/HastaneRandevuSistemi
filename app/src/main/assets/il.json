@@ -1,0 +1,1417 @@
+{
+  "data": [
+    {
+      "value": 1,
+      "text": "ISTANBUL",
+      "districts": [
+        {
+          "value": 10,
+          "text": "TAKSIM",
+          "ilId": 1,
+          "hastane": [
+            {
+              "value": 20,
+              "text": "TAKSIM EGITIM VE ARASTIRMA HASTANESİ",
+              "ilceId": 10,
+              "polikinlik": [
+                {
+                  "value": 30,
+                  "text": "ORTOPEDİ",
+                  "hastaneId": 20,
+                  "doktor": [
+                    {
+                      "value": 40,
+                      "name": "doktor1",
+                      "surname": "doktor1",
+                      "polikinlikId": 30,
+                      "günler": [
+                        {
+                          "value": 50,
+                          "text": "pazartesi",
+                          "doktorId": 40,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 50,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 50,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 51,
+                          "text": "sali",
+                          "doktorId": 40,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 51,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 51,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 52,
+                          "text": "carsamba",
+                          "doktorId": 40,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 52,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 52,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 53,
+                          "text": "persembe",
+                          "doktorId": 40,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 53,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 53,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 54,
+                          "text": "cuma",
+                          "doktorId": 40,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 54,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 54,
+                              "selected": true
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "value": 41,
+                      "name": "doktor2",
+                      "surname": "doktor2",
+                      "poliklinikId": 30,
+                      "günler": [
+                        {
+                          "value": 55,
+                          "text": "pazartesi",
+                          "doktorId": 41,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 55,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 55,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 56,
+                          "text": "sali",
+                          "doktorId": 41,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 56,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 56,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 57,
+                          "text": "carsamba",
+                          "doktorId": 41,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 57,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 57,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 58,
+                          "text": "persembe",
+                          "doktorId": 41,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 58,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 58,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 59,
+                          "text": "cuma",
+                          "doktorId": 41,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 59,
+                              "selected": true
+                            },
+                            {
+                              "value": 17,
+                              "text": "17:00",
+                              "gunId": 59,
+                              "selected": true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "value": 2,
+      "text": "ANKARA",
+      "districts": [
+        {
+          "value": 11,
+          "text": "KIZILAY",
+          "ilId": 2,
+          "hastane": [
+            {
+              "value": 21,
+              "text": "Ankara Eğitim ve Araştırma Hastanesi",
+              "ilceId": 11,
+              "polikinlik": [
+                {
+                  "value": 41,
+                  "text": "PEDİATRİ",
+                  "hastaneId": 21,
+                  "doktor": [
+                    {
+                      "value": 42,
+                      "text": "doktor3",
+                      "surname": "doktor3",
+                      "polikinlikId": 41,
+                      "gunler": [
+                        {
+                          "value": 60,
+                          "text": "pazartesi",
+                          "doktorId": 42,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 60,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 60,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 61,
+                          "text": "salı",
+                          "doktorId": 42,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 61,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 62,
+                          "text": "çarşamba",
+                          "doktorId": 42,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 61,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 61,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 63,
+                          "text": "perşembe",
+                          "doktorId": 42,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 63,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 63,
+                              "selected": true
+                            }
+                          ]
+                        },
+                        {
+                          "value": 64,
+                          "text": "cuma",
+                          "doktorId": 42,
+                          "saatler": [
+                            {
+                              "value": 1,
+                              "text": "09:00",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 2,
+                              "text": "09:30",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 3,
+                              "text": "10:00",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 4,
+                              "text": "10:30",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 5,
+                              "text": "11:00",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 6,
+                              "text": "11:30",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 10,
+                              "text": "13:30",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 11,
+                              "text": "14:00",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 12,
+                              "text": "14:30",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 13,
+                              "text": "15:00",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 14,
+                              "text": "15:30",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 15,
+                              "text": "16:00",
+                              "gunId": 64,
+                              "selected": true
+                            },
+                            {
+                              "value": 16,
+                              "text": "16:30",
+                              "gunId": 64,
+                              "selected": true
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
