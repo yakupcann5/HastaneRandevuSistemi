@@ -19,5 +19,6 @@ class Splash : AppCompatActivity() {
     }
     private fun getData() {
         splashActivityViewModel.setCityData()
+        splashActivityViewModel.setDistrictData()
     }
 }

@@ -1,18 +1,17 @@
-package com.example.hastanerandevusistemi.domain.use_case
+package com.example.hastanerandevusistemi.domain.use_case.district
 
 import com.example.hastanerandevusistemi.common.RequestState
-import com.example.hastanerandevusistemi.domain.model.City
+import com.example.hastanerandevusistemi.domain.model.District
 import com.example.hastanerandevusistemi.domain.repository.CityRepository
+import com.example.hastanerandevusistemi.domain.repository.DistrictRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class SaveCityUseCase @Inject constructor(
-    private val cityRepository: CityRepository
-) {
-    operator fun invoke(city: List<City>) = flow {
+class SaveDistrictUseCase @Inject constructor(private val districtRepository: DistrictRepository) {
+    operator fun invoke(district : List<District>) = flow {
         emit(RequestState.Loading<Long>())
-        val result = cityRepository.insertCity(city.map { it.toEntity() })
+        val result = districtRepository.insertDistrict(district.map { it.toDistrictEntity() })
         emit(RequestState.Success<Long>(result[0]))
     }.catch {
         emit(

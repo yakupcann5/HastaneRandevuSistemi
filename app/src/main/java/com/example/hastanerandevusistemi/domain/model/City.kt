@@ -7,7 +7,7 @@ data class City(
     val text: String,
     val value: Int
 ) : java.io.Serializable{
-    fun toEntity(): CityEntity {
+    fun toCityEntity(): CityEntity {
         return CityEntity(
             value = this.value,
             name = this.text
