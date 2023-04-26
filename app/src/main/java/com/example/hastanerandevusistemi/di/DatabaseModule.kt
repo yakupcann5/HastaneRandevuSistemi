@@ -3,8 +3,11 @@ package com.example.hastanerandevusistemi.di
 import android.content.Context
 import androidx.room.Room
 import com.example.hastanerandevusistemi.data.AppDatabase
+import com.example.hastanerandevusistemi.data.local.dao.CityDao
 import com.example.hastanerandevusistemi.data.local.dao.UserDao
+import com.example.hastanerandevusistemi.data.local.repository.CityRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.UserRepositoryImpl
+import com.example.hastanerandevusistemi.domain.repository.CityRepository
 import com.example.hastanerandevusistemi.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -30,5 +33,15 @@ class DatabaseModule {
     @Provides
     fun provideUserDbRepositoryImpl(dao: UserDao): UserRepository {
         return UserRepositoryImpl(dao)
+    }
+
+    @Provides
+    fun provideCityDao(appDatabase: AppDatabase): CityDao {
+        return appDatabase.cityDao()
+    }
+
+    @Provides
+    fun provideCityDbRepositoryImpl(dao: CityDao): CityRepository {
+        return CityRepositoryImpl(dao)
     }
 }
