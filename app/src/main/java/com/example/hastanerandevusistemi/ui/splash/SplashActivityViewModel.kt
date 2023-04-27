@@ -4,13 +4,14 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.room.Insert
 import com.example.hastanerandevusistemi.common.RequestState
 import com.example.hastanerandevusistemi.domain.model.City
 import com.example.hastanerandevusistemi.domain.model.Data
 import com.example.hastanerandevusistemi.domain.model.District
+import com.example.hastanerandevusistemi.domain.model.Doktor
 import com.example.hastanerandevusistemi.domain.model.Hastane
 import com.example.hastanerandevusistemi.domain.model.Polikinlik
+import com.example.hastanerandevusistemi.domain.use_case.doctor.SaveDoctorUseCase
 import com.example.hastanerandevusistemi.domain.use_case.city.GetCityItemCountUseCase
 import com.example.hastanerandevusistemi.domain.use_case.city.SaveCityUseCase
 import com.example.hastanerandevusistemi.domain.use_case.district.SaveDistrictUseCase
@@ -46,12 +47,15 @@ class SplashActivityViewModel @Inject constructor(
     @Inject
     lateinit var savePolyclinicUseCase: SavePolyclinicUseCase
 
+    @Inject
+    lateinit var saveDoctorUseCase: SaveDoctorUseCase
+
     private var data: Data? = null
     private var city: ArrayList<City> = arrayListOf()
     private var district: ArrayList<District> = arrayListOf()
     private var hospital: ArrayList<Hastane> = arrayListOf()
     private var polyclinic: ArrayList<Polikinlik> = arrayListOf()
-    private var doctor: ArrayList<String> = arrayListOf()
+    private var doctor: ArrayList<Doktor> = arrayListOf()
     private var day: ArrayList<String> = arrayListOf()
     private var hour: ArrayList<String> = arrayListOf()
 
@@ -239,6 +243,53 @@ class SplashActivityViewModel @Inject constructor(
 
                     is RequestState.Error -> {
                         Log.d("TAG", "setPolyclinicData: Error")
+                    }
+                }
+            }.launchIn(viewModelScope)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun setDoctorData() {
+        try {
+            val gson = Gson()
+            data = gson.fromJson(
+                Helper().getJsonDataFromAssets(getApplication(), "il.json"),
+                Data::class.java
+            )
+            data?.data?.forEach {
+                it.districts.forEach { district ->
+                    district.hastane.forEach { hospital ->
+                        hospital.polikinlik.forEach { polyclinic ->
+                            polyclinic.doktor.forEach { doctor ->
+                                this.doctor.add(
+                                    Doktor(
+                                        doctor.gunler,
+                                        doctor.poliklinikId,
+                                        doctor.name,
+                                        doctor.text,
+                                        doctor.value
+                                    )
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            Log.d("TAG", "setDoctorData: ${data?.data?.get(0)?.text}")
+            saveDoctorUseCase.invoke(doctor).onEach {
+                when (it) {
+                    is RequestState.Loading -> {
+                        Log.d("TAG", "setDoctorData: ")
+                    }
+
+                    is RequestState.Success -> {
+                        Log.d("TAG", "setDoctorData: Success")
+                    }
+
+                    is RequestState.Error -> {
+                        Log.d("TAG", "setDoctorData: Error")
                     }
                 }
             }.launchIn(viewModelScope)

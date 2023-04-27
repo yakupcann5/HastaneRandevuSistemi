@@ -22,8 +22,8 @@
                     {
                       "value": 40,
                       "name": "doktor1",
-                      "surname": "doktor1",
-                      "polikinlikId": 30,
+                      "text": "doktor1",
+                      "poliklinikId": 30,
                       "gunler": [
                         {
                           "value": 50,
@@ -485,7 +485,7 @@
                     {
                       "value": 41,
                       "name": "doktor2",
-                      "surname": "doktor2",
+                      "text": "doktor2",
                       "poliklinikId": 30,
                       "gunler": [
                         {
@@ -974,9 +974,9 @@
                   "doktor": [
                     {
                       "value": 42,
+                      "name": "doktor3",
                       "text": "doktor3",
-                      "surname": "doktor3",
-                      "polikinlikId": 41,
+                      "poliklinikId": 41,
                       "gunler": [
                         {
                           "value": 60,
