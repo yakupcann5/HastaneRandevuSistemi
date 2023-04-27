@@ -8,6 +8,7 @@ import com.example.hastanerandevusistemi.data.local.dao.DaysDao
 import com.example.hastanerandevusistemi.data.local.dao.DistrictDao
 import com.example.hastanerandevusistemi.data.local.dao.DoctorDao
 import com.example.hastanerandevusistemi.data.local.dao.HospitalDao
+import com.example.hastanerandevusistemi.data.local.dao.HourDao
 import com.example.hastanerandevusistemi.data.local.dao.PolyclinicDao
 import com.example.hastanerandevusistemi.data.local.dao.UserDao
 import com.example.hastanerandevusistemi.data.local.repository.CityRepositoryImpl
@@ -15,6 +16,7 @@ import com.example.hastanerandevusistemi.data.local.repository.DaysRepositoryImp
 import com.example.hastanerandevusistemi.data.local.repository.DistrictRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.DoctorRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.HospitalRepositoryImpl
+import com.example.hastanerandevusistemi.data.local.repository.HourRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.PolyclinicRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.UserRepositoryImpl
 import com.example.hastanerandevusistemi.domain.repository.CityRepository
@@ -22,6 +24,7 @@ import com.example.hastanerandevusistemi.domain.repository.DaysRepository
 import com.example.hastanerandevusistemi.domain.repository.DistrictRepository
 import com.example.hastanerandevusistemi.domain.repository.DoctorRepository
 import com.example.hastanerandevusistemi.domain.repository.HospitalRepository
+import com.example.hastanerandevusistemi.domain.repository.HourRepository
 import com.example.hastanerandevusistemi.domain.repository.PolyclinicRepository
 import com.example.hastanerandevusistemi.domain.repository.UserRepository
 import dagger.Module
@@ -107,5 +110,15 @@ class DatabaseModule {
     @Provides
     fun provideDaysDao(appDatabase: AppDatabase): DaysDao {
         return appDatabase.daysDao()
+    }
+
+    @Provides
+    fun provideDaysDbRepositoryImpl(dao: HourDao): HourRepository {
+        return HourRepositoryImpl(dao)
+    }
+
+    @Provides
+    fun provideHourDao(appDatabase: AppDatabase): HourDao {
+        return appDatabase.hourDao()
     }
 }

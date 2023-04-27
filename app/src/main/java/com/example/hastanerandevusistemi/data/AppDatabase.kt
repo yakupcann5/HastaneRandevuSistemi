@@ -7,6 +7,7 @@ import com.example.hastanerandevusistemi.data.local.dao.DaysDao
 import com.example.hastanerandevusistemi.data.local.dao.DistrictDao
 import com.example.hastanerandevusistemi.data.local.dao.DoctorDao
 import com.example.hastanerandevusistemi.data.local.dao.HospitalDao
+import com.example.hastanerandevusistemi.data.local.dao.HourDao
 import com.example.hastanerandevusistemi.data.local.dao.PolyclinicDao
 import com.example.hastanerandevusistemi.data.local.dao.UserDao
 import com.example.hastanerandevusistemi.data.local.entities.CityEntity
@@ -14,6 +15,7 @@ import com.example.hastanerandevusistemi.data.local.entities.DaysEntity
 import com.example.hastanerandevusistemi.data.local.entities.DistrictEntity
 import com.example.hastanerandevusistemi.data.local.entities.DoctorEntity
 import com.example.hastanerandevusistemi.data.local.entities.HospitalEntity
+import com.example.hastanerandevusistemi.data.local.entities.HourEntity
 import com.example.hastanerandevusistemi.data.local.entities.PolyclinicEntity
 import com.example.hastanerandevusistemi.data.local.entities.UserEntity
 
@@ -25,7 +27,8 @@ import com.example.hastanerandevusistemi.data.local.entities.UserEntity
         HospitalEntity::class,
         PolyclinicEntity::class,
         DoctorEntity::class,
-        DaysEntity::class],
+        DaysEntity::class,
+        HourEntity::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -36,4 +39,5 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun polyclinicDao(): PolyclinicDao
     abstract fun doctorDao(): DoctorDao
     abstract fun daysDao(): DaysDao
+    abstract fun hourDao(): HourDao
 }
