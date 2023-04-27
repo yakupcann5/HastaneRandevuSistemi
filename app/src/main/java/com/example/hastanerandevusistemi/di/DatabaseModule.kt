@@ -5,12 +5,15 @@ import androidx.room.Room
 import com.example.hastanerandevusistemi.data.AppDatabase
 import com.example.hastanerandevusistemi.data.local.dao.CityDao
 import com.example.hastanerandevusistemi.data.local.dao.DistrictDao
+import com.example.hastanerandevusistemi.data.local.dao.HospitalDao
 import com.example.hastanerandevusistemi.data.local.dao.UserDao
 import com.example.hastanerandevusistemi.data.local.repository.CityRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.DistrictRepositoryImpl
+import com.example.hastanerandevusistemi.data.local.repository.HospitalRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.UserRepositoryImpl
 import com.example.hastanerandevusistemi.domain.repository.CityRepository
 import com.example.hastanerandevusistemi.domain.repository.DistrictRepository
+import com.example.hastanerandevusistemi.domain.repository.HospitalRepository
 import com.example.hastanerandevusistemi.domain.repository.UserRepository
 import dagger.Module
 import dagger.Provides
@@ -56,5 +59,14 @@ class DatabaseModule {
     @Provides
     fun provideDistrictDbRepositoryImpl(dao: DistrictDao): DistrictRepository {
         return DistrictRepositoryImpl(dao)
+    }
+
+    @Provides
+    fun provideHospitalDao(appDatabase: AppDatabase): HospitalDao {
+        return appDatabase.hospitalDao()
+    }
+    @Provides
+    fun provideHospitalDbRepositoryImpl(dao: HospitalDao): HospitalRepository {
+        return HospitalRepositoryImpl(dao)
     }
 }
