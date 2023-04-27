@@ -13,4 +13,7 @@ interface CityDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertCity(city: List<CityEntity>): List<Long>
+
+    @Query("SELECT COUNT(*) FROM city")
+    suspend fun getCount(): Int
 }

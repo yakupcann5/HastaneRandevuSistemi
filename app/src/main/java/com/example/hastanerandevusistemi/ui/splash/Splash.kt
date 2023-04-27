@@ -15,8 +15,18 @@ class Splash : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        getData()
+        if (splashActivityViewModel.firstOpen()) {
+            getData()
+        } else {
+            splashActivityViewModel.getCityItemCount()
+            splashActivityViewModel.itemCityCount.observe(this) {
+                if (!it) {
+                    getData()
+                }
+            }
+        }
     }
+
     private fun getData() {
         splashActivityViewModel.setCityData()
         splashActivityViewModel.setDistrictData()

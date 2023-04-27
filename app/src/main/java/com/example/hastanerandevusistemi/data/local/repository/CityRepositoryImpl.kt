@@ -13,4 +13,8 @@ class CityRepositoryImpl @Inject constructor(private val cityDao: CityDao) : Cit
     override suspend fun insertCity(city: List<CityEntity>): List<Long> {
         return cityDao.insertCity(city)
     }
+
+    override suspend fun getCount(): Int {
+        return cityDao.getCount()
+    }
 }

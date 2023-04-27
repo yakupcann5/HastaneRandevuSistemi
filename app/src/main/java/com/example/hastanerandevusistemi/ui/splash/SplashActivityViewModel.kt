@@ -2,15 +2,18 @@ package com.example.hastanerandevusistemi.ui.splash
 
 import android.app.Application
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.hastanerandevusistemi.common.RequestState
 import com.example.hastanerandevusistemi.domain.model.City
 import com.example.hastanerandevusistemi.domain.model.Data
 import com.example.hastanerandevusistemi.domain.model.District
+import com.example.hastanerandevusistemi.domain.use_case.city.GetCityItemCountUseCase
 import com.example.hastanerandevusistemi.domain.use_case.city.SaveCityUseCase
 import com.example.hastanerandevusistemi.domain.use_case.district.SaveDistrictUseCase
 import com.example.hastanerandevusistemi.ui.BaseViewModel
 import com.example.hastanerandevusistemi.util.Helper
+import com.example.hastanerandevusistemi.util.MyPreferences
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -20,8 +23,12 @@ import javax.inject.Inject
 @HiltViewModel
 class SplashActivityViewModel @Inject constructor(
     application: Application,
+    private val preferences: MyPreferences
 ) :
     BaseViewModel(application) {
+    @Inject
+    lateinit var getCityItemCountUseCase: GetCityItemCountUseCase
+
     @Inject
     lateinit var saveCityUseCase: SaveCityUseCase
 
@@ -36,6 +43,33 @@ class SplashActivityViewModel @Inject constructor(
     private var doctor: ArrayList<String> = arrayListOf()
     private var day: ArrayList<String> = arrayListOf()
     private var hour: ArrayList<String> = arrayListOf()
+
+    val itemCityCount = MutableLiveData<Boolean>()
+
+    fun firstOpen(): Boolean {
+        if (!preferences.getBoolean("firstOpen")) {
+            preferences.setBoolean("firstOpen", true)
+            return true
+        }
+        return false
+    }
+
+    fun getCityItemCount() {
+        getCityItemCountUseCase.invoke().onEach { result ->
+            when (result) {
+                is RequestState.Loading -> {
+                    Log.d("TAG", "getCityItemCount: ")
+                }
+                is RequestState.Success -> {
+                    itemCityCount.value = true
+                    Log.d("TAG", "getCityItemCount: Success")
+                }
+                is RequestState.Error -> {
+                    Log.d("TAG", "getCityItemCount: Error")
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
 
     fun setCityData() {
         try {
