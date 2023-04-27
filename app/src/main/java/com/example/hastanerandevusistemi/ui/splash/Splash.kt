@@ -1,9 +1,14 @@
 package com.example.hastanerandevusistemi.ui.splash
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.viewModels
+import com.example.hastanerandevusistemi.MainActivity
 import com.example.hastanerandevusistemi.R
 import com.example.hastanerandevusistemi.databinding.ActivitySplashBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,21 +20,39 @@ class Splash : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
+        binding = ActivitySplashBinding.inflate(layoutInflater)
+        startAnimation()
+        setContentView(binding.root)
         if (splashActivityViewModel.firstOpen()) {
             getData()
+            val intent = Intent(this, MainActivity::class.java)
+            Handler().postDelayed({
+                startActivity(intent)
+                finish()
+            }, 5000)
         } else {
-            splashActivityViewModel.getCityItemCount()
-            splashActivityViewModel.itemCityCount.observe(this) {
-                if (!it) {
-                    getData()
-                }
-            }
+            val intent = Intent(this, MainActivity::class.java)
+            Handler().postDelayed({
+                startActivity(intent)
+                finish()
+            }, 5000)
         }
     }
 
+    private fun startAnimation() {
+        val anim = AnimationUtils.loadAnimation(this, R.anim.bounce)
+        anim.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationEnd(animation: Animation?) {
+                startAnimation() // Animasyon bittiğinde tekrar başlat
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {}
+        })
+        binding.logo.startAnimation(anim)
+    }
+
     private fun getData() {
-        Log.d("süre", "getData: ${System.currentTimeMillis()}")
         splashActivityViewModel.setCityData()
         splashActivityViewModel.setDistrictData()
         splashActivityViewModel.setHospitalData()
@@ -37,6 +60,5 @@ class Splash : AppCompatActivity() {
         splashActivityViewModel.setDoctorData()
         splashActivityViewModel.setDaysData()
         splashActivityViewModel.setHourData()
-        Log.d("süre", "getData: ${System.currentTimeMillis()}")
     }
 }

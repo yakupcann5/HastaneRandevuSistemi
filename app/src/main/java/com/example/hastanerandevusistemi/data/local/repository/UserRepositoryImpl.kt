@@ -6,7 +6,7 @@ import com.example.hastanerandevusistemi.domain.repository.UserRepository
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(var userDao: UserDao) : UserRepository {
-    override suspend fun insertChild(user: UserEntity): Long {
+    override suspend fun insertUser(user: UserEntity): Long {
         return userDao.insertUser(user)
     }
 

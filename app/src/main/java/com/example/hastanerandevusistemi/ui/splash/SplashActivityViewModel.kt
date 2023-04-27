@@ -69,33 +69,12 @@ class SplashActivityViewModel @Inject constructor(
     private var day: ArrayList<Gunler> = arrayListOf()
     private var hour: ArrayList<Saatler> = arrayListOf()
 
-    val itemCityCount = MutableLiveData<Boolean>()
-
     fun firstOpen(): Boolean {
         if (!preferences.getBoolean("firstOpen")) {
             preferences.setBoolean("firstOpen", true)
             return true
         }
         return false
-    }
-
-    fun getCityItemCount() {
-        getCityItemCountUseCase.invoke().onEach { result ->
-            when (result) {
-                is RequestState.Loading -> {
-                    Log.d("TAG", "getCityItemCount: ")
-                }
-
-                is RequestState.Success -> {
-                    itemCityCount.value = true
-                    Log.d("TAG", "getCityItemCount: Success")
-                }
-
-                is RequestState.Error -> {
-                    Log.d("TAG", "getCityItemCount: Error")
-                }
-            }
-        }.launchIn(viewModelScope)
     }
 
     fun setCityData() {
