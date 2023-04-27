@@ -9,11 +9,13 @@ import com.example.hastanerandevusistemi.domain.model.City
 import com.example.hastanerandevusistemi.domain.model.Data
 import com.example.hastanerandevusistemi.domain.model.District
 import com.example.hastanerandevusistemi.domain.model.Doktor
+import com.example.hastanerandevusistemi.domain.model.Gunler
 import com.example.hastanerandevusistemi.domain.model.Hastane
 import com.example.hastanerandevusistemi.domain.model.Polikinlik
 import com.example.hastanerandevusistemi.domain.use_case.doctor.SaveDoctorUseCase
 import com.example.hastanerandevusistemi.domain.use_case.city.GetCityItemCountUseCase
 import com.example.hastanerandevusistemi.domain.use_case.city.SaveCityUseCase
+import com.example.hastanerandevusistemi.domain.use_case.days.SaveDaysUseCase
 import com.example.hastanerandevusistemi.domain.use_case.district.SaveDistrictUseCase
 import com.example.hastanerandevusistemi.domain.use_case.hospital.SaveHospitalUseCase
 import com.example.hastanerandevusistemi.domain.use_case.polyclinic.SavePolyclinicUseCase
@@ -50,13 +52,16 @@ class SplashActivityViewModel @Inject constructor(
     @Inject
     lateinit var saveDoctorUseCase: SaveDoctorUseCase
 
+    @Inject
+    lateinit var saveDaysUseCase: SaveDaysUseCase
+
     private var data: Data? = null
     private var city: ArrayList<City> = arrayListOf()
     private var district: ArrayList<District> = arrayListOf()
     private var hospital: ArrayList<Hastane> = arrayListOf()
     private var polyclinic: ArrayList<Polikinlik> = arrayListOf()
     private var doctor: ArrayList<Doktor> = arrayListOf()
-    private var day: ArrayList<String> = arrayListOf()
+    private var day: ArrayList<Gunler> = arrayListOf()
     private var hour: ArrayList<String> = arrayListOf()
 
     val itemCityCount = MutableLiveData<Boolean>()
@@ -290,6 +295,53 @@ class SplashActivityViewModel @Inject constructor(
 
                     is RequestState.Error -> {
                         Log.d("TAG", "setDoctorData: Error")
+                    }
+                }
+            }.launchIn(viewModelScope)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun setDaysData() {
+        try {
+            val gson = Gson()
+            data = gson.fromJson(
+                Helper().getJsonDataFromAssets(getApplication(), "il.json"),
+                Data::class.java
+            )
+            data?.data?.forEach {
+                it.districts.forEach { district ->
+                    district.hastane.forEach { hospital ->
+                        hospital.polikinlik.forEach { polyclinic ->
+                            polyclinic.doktor.forEach { doctor ->
+                                doctor.gunler.forEach { day ->
+                                    this.day.add(
+                                        Gunler(
+                                            day.doktorId,
+                                            day.saatler,
+                                            day.text,
+                                            day.value
+                                        )
+                                    )
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            saveDaysUseCase.invoke(day).onEach {
+                when (it) {
+                    is RequestState.Loading -> {
+                        Log.d("TAG", "setDaysData: ")
+                    }
+
+                    is RequestState.Success -> {
+                        Log.d("TAG", "setDaysData: Success")
+                    }
+
+                    is RequestState.Error -> {
+                        Log.d("TAG", "setDaysData: Error")
                     }
                 }
             }.launchIn(viewModelScope)

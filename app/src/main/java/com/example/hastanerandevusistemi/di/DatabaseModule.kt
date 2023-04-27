@@ -4,18 +4,21 @@ import android.content.Context
 import androidx.room.Room
 import com.example.hastanerandevusistemi.data.AppDatabase
 import com.example.hastanerandevusistemi.data.local.dao.CityDao
+import com.example.hastanerandevusistemi.data.local.dao.DaysDao
 import com.example.hastanerandevusistemi.data.local.dao.DistrictDao
 import com.example.hastanerandevusistemi.data.local.dao.DoctorDao
 import com.example.hastanerandevusistemi.data.local.dao.HospitalDao
 import com.example.hastanerandevusistemi.data.local.dao.PolyclinicDao
 import com.example.hastanerandevusistemi.data.local.dao.UserDao
 import com.example.hastanerandevusistemi.data.local.repository.CityRepositoryImpl
+import com.example.hastanerandevusistemi.data.local.repository.DaysRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.DistrictRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.DoctorRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.HospitalRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.PolyclinicRepositoryImpl
 import com.example.hastanerandevusistemi.data.local.repository.UserRepositoryImpl
 import com.example.hastanerandevusistemi.domain.repository.CityRepository
+import com.example.hastanerandevusistemi.domain.repository.DaysRepository
 import com.example.hastanerandevusistemi.domain.repository.DistrictRepository
 import com.example.hastanerandevusistemi.domain.repository.DoctorRepository
 import com.example.hastanerandevusistemi.domain.repository.HospitalRepository
@@ -94,5 +97,15 @@ class DatabaseModule {
     @Provides
     fun provideDoctorDbRepositoryImpl(dao: DoctorDao): DoctorRepository {
         return DoctorRepositoryImpl(dao)
+    }
+
+    @Provides
+    fun provideCityRepositoryImpl(dao: DaysDao): DaysRepository {
+        return DaysRepositoryImpl(dao)
+    }
+
+    @Provides
+    fun provideDaysDao(appDatabase: AppDatabase): DaysDao {
+        return appDatabase.daysDao()
     }
 }

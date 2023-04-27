@@ -33,5 +33,6 @@ class Splash : AppCompatActivity() {
         splashActivityViewModel.setHospitalData()
         splashActivityViewModel.setPolyclinicData()
         splashActivityViewModel.setDoctorData()
+        splashActivityViewModel.setDaysData()
     }
 }
