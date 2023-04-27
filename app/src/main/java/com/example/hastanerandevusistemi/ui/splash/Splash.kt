@@ -31,5 +31,6 @@ class Splash : AppCompatActivity() {
         splashActivityViewModel.setCityData()
         splashActivityViewModel.setDistrictData()
         splashActivityViewModel.setHospitalData()
+        splashActivityViewModel.setPolyclinicData()
     }
 }
