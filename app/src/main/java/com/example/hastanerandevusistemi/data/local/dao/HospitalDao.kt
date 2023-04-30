@@ -11,6 +11,6 @@ interface HospitalDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHospital(hospitalEntity: List<HospitalEntity>): List<Long>
 
-    @Query("SELECT * FROM hospital")
-    suspend fun getAllHospital(): List<HospitalEntity>
+    @Query("SELECT * FROM hospital WHERE ilceId = :ilçeId")
+    suspend fun getAllHospital(ilçeId: Int): List<HospitalEntity>
 }

@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_login_to_register"
             app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_home2"
+            app:destination="@id/home2" />
     </fragment>
     <fragment
         android:id="@+id/register"
@@ -23,4 +26,33 @@
             android:id="@+id/action_register_to_login"
             app:destination="@id/login" />
     </fragment>
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.hastanerandevusistemi.ui.home.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home2_to_profil2"
+            app:destination="@id/profil2" />
+        <action
+            android:id="@+id/action_home2_to_makeAppointment"
+            app:destination="@id/makeAppointment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profil2"
+        android:name="com.example.hastanerandevusistemi.ui.profil.Profil"
+        android:label="fragment_profil"
+        tools:layout="@layout/fragment_profil" >
+        <action
+            android:id="@+id/action_profil2_to_home2"
+            app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_profil2_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/makeAppointment"
+        android:name="com.example.hastanerandevusistemi.ui.make_an_appointment.MakeAppointment"
+        android:label="fragment_make_appointment"
+        tools:layout="@layout/fragment_make_appointment" />
 </navigation>

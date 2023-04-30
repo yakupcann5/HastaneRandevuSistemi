@@ -84,7 +84,6 @@
                 android:lines="1"
                 android:maxLength="50"
                 android:nextFocusDown="@id/passwordInput"
-                android:text="@={viewModel.addUserName}"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -117,7 +116,6 @@
                 android:layout_height="match_parent"
                 android:inputType="textPersonName"
                 android:lines="1"
-                android:text="@={viewModel.addUserSurname}"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -148,7 +146,6 @@
                 android:lines="1"
                 android:maxLength="50"
                 android:nextFocusDown="@id/passwordInput"
-                android:text="@={viewModel.addUserTC}"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -182,7 +179,6 @@
                 android:focusableInTouchMode="true"
                 android:inputType="textWebEmailAddress"
                 android:lines="1"
-                android:text="@={viewModel.addUserEmail}"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -216,7 +212,6 @@
                 android:focusableInTouchMode="true"
                 android:inputType="textPassword"
                 android:lines="1"
-                android:text="@={viewModel.addUserPassword}"
                 android:textColor="@color/black"
                 android:textSize="13sp"
                 android:textStyle="bold" />

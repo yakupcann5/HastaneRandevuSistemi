@@ -6,8 +6,8 @@ import com.example.hastanerandevusistemi.domain.repository.HospitalRepository
 import javax.inject.Inject
 
 class HospitalRepositoryImpl @Inject constructor(private val hospitalDao: HospitalDao): HospitalRepository {
-    override suspend fun getAllHospital(): List<HospitalEntity> {
-        return hospitalDao.getAllHospital()
+    override suspend fun getAllHospital(ilçeId: Int): List<HospitalEntity> {
+        return hospitalDao.getAllHospital(ilçeId)
     }
 
     override suspend fun insertHospital(hospital: List<HospitalEntity>): List<Long> {

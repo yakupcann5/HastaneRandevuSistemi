@@ -11,6 +11,6 @@ interface DaysDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDays(daysEntity: List<DaysEntity>): List<Long>
 
-    @Query("SELECT * FROM days")
-    suspend fun getDays(): List<DaysEntity>
+    @Query("SELECT * FROM days WHERE doktorId = :doctorId")
+    suspend fun getDays(doctorId: Int): List<DaysEntity>
 }

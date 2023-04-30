@@ -9,8 +9,8 @@ import javax.inject.Inject
 class DoctorRepositoryImpl @Inject constructor(
     private val doctorDao: DoctorDao
 ) : DoctorRepository {
-    override suspend fun getDoctors(): List<DoctorEntity> {
-        return doctorDao.getDoctors()
+    override suspend fun getDoctors(departmentId: Int): List<DoctorEntity> {
+        return doctorDao.getDoctors(departmentId)
     }
 
 

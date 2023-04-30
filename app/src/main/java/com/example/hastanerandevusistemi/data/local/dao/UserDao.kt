@@ -16,4 +16,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE id = :id")
     suspend fun getUserById(id: Int): UserEntity
+
+    @Query("SELECT * FROM user WHERE tc = :tc AND password = :password")
+    suspend fun getUserByTCAndPassword(tc: Int, password: String): UserEntity
 }

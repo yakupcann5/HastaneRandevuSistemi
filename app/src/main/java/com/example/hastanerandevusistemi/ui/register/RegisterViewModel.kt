@@ -3,6 +3,7 @@ package com.example.hastanerandevusistemi.ui.register
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.hastanerandevusistemi.common.RequestState
 import com.example.hastanerandevusistemi.domain.model.User
@@ -15,36 +16,26 @@ import javax.inject.Inject
 
 @HiltViewModel
 class RegisterViewModel @Inject constructor(
-    application: Application,
     private val saveUserUseCase: SaveUserUseCase
-) : BaseViewModel(application) {
+) : ViewModel() {
 
-    var addUserModel: MutableLiveData<User> = MutableLiveData()
-    var addUserModelIsFull: MutableLiveData<Boolean> = MutableLiveData()
-    var addUserName: MutableLiveData<String?> = MutableLiveData()
-    var addUserSurname: MutableLiveData<String> = MutableLiveData()
-    var addUserTC: MutableLiveData<String> = MutableLiveData()
-    var addUserEmail: MutableLiveData<String> = MutableLiveData()
-    var addUserPassword: MutableLiveData<String> = MutableLiveData()
+    val registerState : MutableLiveData<Boolean> = MutableLiveData()
 
-    fun checkInput() {
-        addUserModelIsFull.value =
-            !addUserName.value.isNullOrEmpty() &&
-                    !addUserSurname.value.isNullOrEmpty() &&
-                    !addUserTC.value.isNullOrEmpty() &&
-                    !addUserEmail.value.isNullOrEmpty() &&
-                    !addUserPassword.value.isNullOrEmpty()
-    }
-
-    fun addUser() {
+    fun addUser(
+        userName: String,
+        userSurname: String,
+        userTC: String,
+        userEmail: String,
+        userPassword: String
+    ) {
         saveUserUseCase.invoke(
             User(
                 0,
-                addUserName.value.toString(),
-                addUserSurname.value.toString(),
-                addUserTC.value.toString().toInt(),
-                addUserEmail.value.toString(),
-                addUserPassword.value.toString()
+                userName,
+                userSurname,
+                userTC.toInt(),
+                userEmail,
+                userPassword
             )
         ).onEach {
             when (it) {
@@ -54,6 +45,7 @@ class RegisterViewModel @Inject constructor(
 
                 is RequestState.Success -> {
                     Log.d("TAG", "addUser: ${it.data}")
+                    registerState.value = true
                 }
 
                 is RequestState.Error -> {

@@ -11,6 +11,6 @@ interface PolyclinicDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPolyclinic(polyclinicEntityList: List<PolyclinicEntity>): List<Long>
 
-    @Query("SELECT * FROM polyclinic")
-    suspend fun getAllPolyclinic(): List<PolyclinicEntity>
+    @Query("SELECT * FROM polyclinic WHERE hastaneId = :hospitalId")
+    suspend fun getAllPolyclinic(hospitalId: Int): List<PolyclinicEntity>
 }

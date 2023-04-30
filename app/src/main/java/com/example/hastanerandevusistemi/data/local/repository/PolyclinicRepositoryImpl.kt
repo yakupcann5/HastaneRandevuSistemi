@@ -6,8 +6,8 @@ import com.example.hastanerandevusistemi.domain.repository.PolyclinicRepository
 import javax.inject.Inject
 
 class PolyclinicRepositoryImpl @Inject constructor(private val polyclinicDao: PolyclinicDao): PolyclinicRepository {
-    override suspend fun getAllPolyclinic(): List<PolyclinicEntity> {
-        return polyclinicDao.getAllPolyclinic()
+    override suspend fun getAllPolyclinic(hospitalId: Int): List<PolyclinicEntity> {
+        return polyclinicDao.getAllPolyclinic(hospitalId)
     }
 
     override suspend fun insertPolyclinic(polyclinicEntity: List<PolyclinicEntity>): List<Long> {

@@ -50,24 +50,38 @@ class Register : Fragment(), View.OnClickListener {
             }
 
             binding.registerButton.id -> {
-                observeAddUserInfo()
                 register()
             }
         }
     }
 
-    private fun observeAddUserInfo() {
-        registerViewModel.addUserModel.observe(this) {
-            registerViewModel.checkInput()
-        }
-    }
-
     private fun register() {
-        registerViewModel.checkInput()
-        if (registerViewModel.addUserModelIsFull.value == true) {
-            registerViewModel.addUser()
-        } else {
-            Toast.makeText(context, "Lütfen tüm alanları doldurunuz", Toast.LENGTH_SHORT).show()
+        if (!binding.isimInput.text.isNullOrEmpty()) {
+            if (!binding.soyisimInput.text.isNullOrEmpty()) {
+                if (!binding.tcInput.text.isNullOrEmpty()) {
+                    if (!binding.emailInput.text.isNullOrEmpty()) {
+                        if (!binding.passwordInput.text.isNullOrEmpty()) {
+                            registerViewModel.addUser(
+                                binding.isimInput.text.toString(),
+                                binding.soyisimInput.text.toString(),
+                                binding.tcInput.text.toString(),
+                                binding.emailInput.text.toString(),
+                                binding.passwordInput.text.toString())
+                        }
+                    }
+                }
+            }
+        }
+        registerViewModel.registerState.observe(this) {
+            when (it) {
+                true -> {
+                    Toast.makeText(context, "Kayıt Başarılı", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_register_to_login)
+                }
+                false -> {
+                    Toast.makeText(context, "Kayıt Başarısız", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }

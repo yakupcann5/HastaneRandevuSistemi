@@ -13,6 +13,6 @@ interface DoctorDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDoctors(doctors: List<DoctorEntity>): List<Long>
 
-    @Query("SELECT * FROM doctor")
-    suspend fun getDoctors(): List<DoctorEntity>
+    @Query("SELECT * FROM doctor WHERE poliklinikId = :departmentId")
+    suspend fun getDoctors(departmentId: Int): List<DoctorEntity>
 }

@@ -11,6 +11,6 @@ interface HourDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHour(hourEntity: List<HourEntity>): List<Long>
 
-    @Query("SELECT * FROM hour")
-    suspend fun getAllHour(): List<HourEntity>
+    @Query("SELECT * FROM hour WHERE gunId = :dayId")
+    suspend fun getAllHour(dayId: Int): List<HourEntity>
 }

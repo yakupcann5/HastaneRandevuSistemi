@@ -8,9 +8,9 @@ import com.example.hastanerandevusistemi.data.local.entities.DistrictEntity
 
 @Dao
 interface DistrictDao {
-    @Query("SELECT * FROM district")
-    suspend fun getAllDistrict(): List<DistrictEntity>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDistrict(district: List<DistrictEntity>): List<Long>
+
+    @Query("SELECT * FROM district WHERE ilId = :ilId")
+    suspend fun getAllDistrict(ilId: Int): List<DistrictEntity>
 }

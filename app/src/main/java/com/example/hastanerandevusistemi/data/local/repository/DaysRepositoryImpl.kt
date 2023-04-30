@@ -6,8 +6,8 @@ import com.example.hastanerandevusistemi.domain.repository.DaysRepository
 import javax.inject.Inject
 
 class DaysRepositoryImpl @Inject constructor(private val daysDao: DaysDao): DaysRepository {
-    override suspend fun getDays(): List<DaysEntity> {
-        return daysDao.getDays()
+    override suspend fun getDays(doctorId: Int): List<DaysEntity> {
+        return daysDao.getDays(doctorId)
     }
 
     override suspend fun insertDays(daysEntity: List<DaysEntity>): List<Long> {

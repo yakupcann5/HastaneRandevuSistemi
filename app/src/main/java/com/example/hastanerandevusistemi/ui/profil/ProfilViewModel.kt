@@ -1,10 +1,10 @@
-package com.example.hastanerandevusistemi.ui.login
+package com.example.hastanerandevusistemi.ui.profil
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.hastanerandevusistemi.common.RequestState
+import com.example.hastanerandevusistemi.data.local.entities.UserEntity
 import com.example.hastanerandevusistemi.domain.use_case.user.GetUserByTcAndPasswordUseCase
 import com.example.hastanerandevusistemi.ui.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -13,28 +13,23 @@ import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class ProfilViewModel @Inject constructor(
     application: Application,
-    var getUserByTcAndPasswordUseCase: GetUserByTcAndPasswordUseCase
+    private val getUserByTcAndPasswordUseCase: GetUserByTcAndPasswordUseCase
 ) : BaseViewModel(application) {
+    var userInfo: MutableLiveData<RequestState<UserEntity?>> = MutableLiveData()
 
-    var loginState : MutableLiveData<Boolean> = MutableLiveData()
-
-    fun getUserByTcAndPassword(tc: Int, password: String) {
+    fun getUserInfo(tc: Int, password: String) {
         getUserByTcAndPasswordUseCase.invoke(tc, password).onEach {
             when (it) {
                 is RequestState.Loading -> {
-                    Log.d("TAG", "getUserByTcAndPassword: Loading")
-                }
 
+                }
                 is RequestState.Success -> {
-                    Log.d("TAG", "getUserByTcAndPassword: ${it.data}")
-                    loginState.value = true
+                    userInfo.value = RequestState.Success(it.data)
                 }
-
                 is RequestState.Error -> {
-                    Log.d("TAG", "getUserByTcAndPassword: ${it.message}")
-                    loginState.value = false
+
                 }
             }
         }.launchIn(viewModelScope)
