@@ -14,5 +14,4 @@ class AppointmentRepositoryImpl @Inject constructor(var appointmentDao: Appointm
     override suspend fun insertAppointment(appointmentEntity: List<AppointmentEntity>): List<Long> {
         return appointmentDao.insertAppointment(appointmentEntity)
     }
-
 }

@@ -9,9 +9,15 @@ data class AppointmentEntity(
     val id: Int? = null,
     val userId: Int? = null,
     val cityId: Int? = null,
+    val cityName: String? = null,
     val hospitalId: Int? = null,
+    val hospitalName: String? = null,
     val departmentId: Int? = null,
+    val departmentName: String? = null,
     val doctorId: Int? = null,
+    val doctorName: String? = null,
     val dayId: Int? = null,
-    val hourId: Int? = null
+    val dayName: String? = null,
+    val hourId: Int? = null,
+    val hourName: String? = null
 )

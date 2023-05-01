@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_home2_to_makeAppointment"
             app:destination="@id/makeAppointment" />
+        <action
+            android:id="@+id/action_home2_to_myAppointment"
+            app:destination="@id/myAppointment" />
     </fragment>
     <fragment
         android:id="@+id/profil2"
@@ -54,5 +57,21 @@
         android:id="@+id/makeAppointment"
         android:name="com.example.hastanerandevusistemi.ui.make_an_appointment.MakeAppointment"
         android:label="fragment_make_appointment"
-        tools:layout="@layout/fragment_make_appointment" />
+        tools:layout="@layout/fragment_make_appointment" >
+        <action
+            android:id="@+id/action_makeAppointment_to_home2"
+            app:destination="@id/home2" />
+    </fragment>
+    <fragment
+        android:id="@+id/myAppointment"
+        android:name="com.example.hastanerandevusistemi.ui.my_appointments.MyAppointment"
+        android:label="fragment_my_appointment"
+        tools:layout="@layout/fragment_my_appointment" >
+        <action
+            android:id="@+id/action_myAppointment_to_home2"
+            app:destination="@id/home2" />
+        <action
+            android:id="@+id/action_myAppointment_to_makeAppointment"
+            app:destination="@id/makeAppointment" />
+    </fragment>
 </navigation>

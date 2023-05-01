@@ -47,12 +47,19 @@ class MakeAppointmentViewModel
     var userId: MutableLiveData<Int?> = MutableLiveData()
 
     var selectedCityId: MutableLiveData<Int> = MutableLiveData()
+    var selectedCityName: MutableLiveData<String> = MutableLiveData()
     var selectedDistrictId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDistrictName: MutableLiveData<String> = MutableLiveData()
     var selectedHospitalId: MutableLiveData<Int> = MutableLiveData()
+    var selectedHospitalName: MutableLiveData<String> = MutableLiveData()
     var selectedDepertmantId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDepertmantName: MutableLiveData<String> = MutableLiveData()
     var selectedDoctorId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDoctorName: MutableLiveData<String> = MutableLiveData()
     var selectedDateId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDateName: MutableLiveData<String> = MutableLiveData()
     var selectedHourId: MutableLiveData<Int> = MutableLiveData()
+    var selectedHourName: MutableLiveData<String> = MutableLiveData()
 
     fun getCityData() {
         getAllCityUseCase.invoke().onEach {
@@ -179,22 +186,34 @@ class MakeAppointmentViewModel
     fun randevuAl(
         userId: Int,
         cityId: Int,
+        cityName: String,
         hospitalId: Int,
+        hospitalName: String,
         departmentId: Int,
+        departmentName: String,
         doctorId: Int,
+        doctorName: String,
         dateId: Int,
-        hourId: Int
+        dateName: String,
+        hourId: Int,
+        hourName: String
     ) {
         val randevu: ArrayList<Appointment> = arrayListOf()
         randevu.add(
             Appointment(
                 userId,
                 cityId,
+                cityName,
                 hospitalId,
+                hospitalName,
                 departmentId,
+                departmentName,
                 doctorId,
+                doctorName,
                 dateId,
-                hourId
+                dateName,
+                hourId,
+                hourName
             )
         )
         saveAppointmentUseCase.invoke(randevu).onEach {

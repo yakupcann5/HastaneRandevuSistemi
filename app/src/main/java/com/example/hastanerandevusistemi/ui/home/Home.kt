@@ -35,6 +35,7 @@ class Home : Fragment(), View.OnClickListener {
     private fun initView() {
         binding.profil.setOnClickListener(this)
         binding.randevuAl.setOnClickListener(this)
+        binding.randevularM.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -52,6 +53,13 @@ class Home : Fragment(), View.OnClickListener {
                     putString("password", arguments?.getString("password")!!)
                 }
                 findNavController().navigate(R.id.action_home2_to_makeAppointment, bundle)
+            }
+            binding.randevularM.id -> {
+                val bundle = Bundle().apply {
+                    putInt("tc", arguments?.getInt("tc")!!)
+                    putString("password", arguments?.getString("password")!!)
+                }
+                findNavController().navigate(R.id.action_home2_to_myAppointment, bundle)
             }
         }
     }

@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.hastanerandevusistemi.R
 import com.example.hastanerandevusistemi.databinding.FragmentMakeAppointmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -47,12 +49,16 @@ class MakeAppointment : Fragment(), View.OnClickListener {
             arguments?.getString("password")!!
         )
         binding.confirmButton.setOnClickListener(this)
+        binding.filterCloseButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.confirmButton.id -> {
                 observeSelectedAppointment()
+            }
+            binding.filterCloseButton.id -> {
+                findNavController().navigate(R.id.action_makeAppointment_to_home2)
             }
         }
     }
@@ -83,11 +89,17 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                                                         makeAppointmentViewModel.randevuAl(
                                                             makeAppointmentViewModel.userId.value!!,
                                                             cityId,
+                                                            makeAppointmentViewModel.selectedCityName.value!!,
                                                             hospitalId,
+                                                            makeAppointmentViewModel.selectedHospitalName.value!!,
                                                             departmentId,
+                                                            makeAppointmentViewModel.selectedDepertmantName.value!!,
                                                             doctorId,
+                                                            makeAppointmentViewModel.selectedDoctorName.value!!,
                                                             dateId,
-                                                            hourId
+                                                            makeAppointmentViewModel.selectedDateName.value!!,
+                                                            hourId,
+                                                            makeAppointmentViewModel.selectedHourName.value!!
                                                         )
                                                     }
                                                 }
@@ -121,6 +133,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 ) {
                     it?.get(position)?.id?.let { it1 -> setDistricts(it1) }
                     makeAppointmentViewModel.selectedCityId.value = it?.get(position)?.id
+                    makeAppointmentViewModel.selectedCityName.value = it?.get(position)?.name
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -162,6 +176,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     districtEntityList?.get(position)?.value?.let { it1 -> setHospital(it1) }
                     makeAppointmentViewModel.selectedDistrictId.value =
                         districtEntityList?.get(position)?.value
+                    makeAppointmentViewModel.selectedDistrictName.value = districtEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -203,6 +218,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     hospitalEntityList?.get(position)?.value?.let { it1 -> setDepartment(it1) }
                     makeAppointmentViewModel.selectedHospitalId.value =
                         hospitalEntityList?.get(position)?.value
+                    makeAppointmentViewModel.selectedHospitalName.value = hospitalEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -244,6 +260,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     departmentEntityList?.get(position)?.value?.let { it1 -> setDoctor(it1) }
                     makeAppointmentViewModel.selectedDepertmantId.value =
                         departmentEntityList?.get(position)?.value
+                    makeAppointmentViewModel.selectedDepertmantName.value = departmentEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -285,6 +302,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     doctorEntityList?.get(position)?.value?.let { it1 -> setDay(it1) }
                     makeAppointmentViewModel.selectedDoctorId.value =
                         doctorEntityList?.get(position)?.value
+                    makeAppointmentViewModel.selectedDoctorName.value = doctorEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -326,6 +344,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     dayEntityList?.get(position)?.value?.let { it1 -> setHour(it1) }
                     makeAppointmentViewModel.selectedDateId.value =
                         dayEntityList?.get(position)?.value
+                    makeAppointmentViewModel.selectedDateName.value = dayEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -367,6 +386,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     hourEntityList?.get(position)?.value?.let { it1 ->
                         Log.d("TAG", "onItemSelected:  $it1")
                         makeAppointmentViewModel.selectedHourId.value = it1
+                        makeAppointmentViewModel.selectedHourName.value =
+                            hourEntityList[position].text
                     }
                 }
 
