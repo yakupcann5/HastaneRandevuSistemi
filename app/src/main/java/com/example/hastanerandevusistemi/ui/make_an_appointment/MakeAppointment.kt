@@ -7,7 +7,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
 import com.example.hastanerandevusistemi.databinding.FragmentMakeAppointmentBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,13 +42,63 @@ class MakeAppointment : Fragment(), View.OnClickListener {
     }
 
     private fun initView() {
+        makeAppointmentViewModel.getUserInfo(
+            arguments?.getInt("tc")!!,
+            arguments?.getString("password")!!
+        )
         binding.confirmButton.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v?.id) {
             binding.confirmButton.id -> {
-                makeAppointmentViewModel.randevuAl()
+                observeSelectedAppointment()
+            }
+        }
+    }
+
+    private fun observeSelectedAppointment() {
+        makeAppointmentViewModel.selectedCityId.observe(viewLifecycleOwner) { cityId ->
+            if (cityId != null) {
+                Log.d("selectedCityId", cityId.toString())
+                makeAppointmentViewModel.selectedHospitalId.observe(viewLifecycleOwner) { hospitalId ->
+                    if (hospitalId != null) {
+                        Log.d("selectedHospitalId", hospitalId.toString())
+                        makeAppointmentViewModel.selectedDepertmantId.observe(viewLifecycleOwner) { departmentId ->
+                            if (departmentId != null) {
+                                Log.d("selectedDepartmentId", departmentId.toString())
+                                makeAppointmentViewModel.selectedDoctorId.observe(viewLifecycleOwner) { doctorId ->
+                                    if (doctorId != null) {
+                                        Log.d("selectedDoctorId", doctorId.toString())
+                                        makeAppointmentViewModel.selectedDateId.observe(
+                                            viewLifecycleOwner
+                                        ) { dateId ->
+                                            if (dateId != null) {
+                                                Log.d("selectedDayId", dateId.toString())
+                                                makeAppointmentViewModel.selectedHourId.observe(
+                                                    viewLifecycleOwner
+                                                ) { hourId ->
+                                                    if (hourId != null) {
+                                                        Log.d("selectedHourId", hourId.toString())
+                                                        makeAppointmentViewModel.randevuAl(
+                                                            makeAppointmentViewModel.userId.value!!,
+                                                            cityId,
+                                                            hospitalId,
+                                                            departmentId,
+                                                            doctorId,
+                                                            dateId,
+                                                            hourId
+                                                        )
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -71,6 +120,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     id: Long
                 ) {
                     it?.get(position)?.id?.let { it1 -> setDistricts(it1) }
+                    makeAppointmentViewModel.selectedCityId.value = it?.get(position)?.id
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -110,6 +160,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     id: Long,
                 ) {
                     districtEntityList?.get(position)?.value?.let { it1 -> setHospital(it1) }
+                    makeAppointmentViewModel.selectedDistrictId.value =
+                        districtEntityList?.get(position)?.value
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -149,6 +201,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     id: Long,
                 ) {
                     hospitalEntityList?.get(position)?.value?.let { it1 -> setDepartment(it1) }
+                    makeAppointmentViewModel.selectedHospitalId.value =
+                        hospitalEntityList?.get(position)?.value
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -188,6 +242,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     id: Long,
                 ) {
                     departmentEntityList?.get(position)?.value?.let { it1 -> setDoctor(it1) }
+                    makeAppointmentViewModel.selectedDepertmantId.value =
+                        departmentEntityList?.get(position)?.value
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -227,6 +283,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     id: Long,
                 ) {
                     doctorEntityList?.get(position)?.value?.let { it1 -> setDay(it1) }
+                    makeAppointmentViewModel.selectedDoctorId.value =
+                        doctorEntityList?.get(position)?.value
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -266,6 +324,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     id: Long,
                 ) {
                     dayEntityList?.get(position)?.value?.let { it1 -> setHour(it1) }
+                    makeAppointmentViewModel.selectedDateId.value =
+                        dayEntityList?.get(position)?.value
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -275,6 +335,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
             }
         }
     }
+
     fun setHour(dayId: Int) {
         makeAppointmentViewModel.getHourData(dayId)
         makeAppointmentViewModel.hour.observe(viewLifecycleOwner) { hourEntityList ->
@@ -305,6 +366,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 ) {
                     hourEntityList?.get(position)?.value?.let { it1 ->
                         Log.d("TAG", "onItemSelected:  $it1")
+                        makeAppointmentViewModel.selectedHourId.value = it1
                     }
                 }
 

@@ -3,30 +3,9 @@ package com.example.hastanerandevusistemi.di
 import android.content.Context
 import androidx.room.Room
 import com.example.hastanerandevusistemi.data.AppDatabase
-import com.example.hastanerandevusistemi.data.local.dao.CityDao
-import com.example.hastanerandevusistemi.data.local.dao.DaysDao
-import com.example.hastanerandevusistemi.data.local.dao.DistrictDao
-import com.example.hastanerandevusistemi.data.local.dao.DoctorDao
-import com.example.hastanerandevusistemi.data.local.dao.HospitalDao
-import com.example.hastanerandevusistemi.data.local.dao.HourDao
-import com.example.hastanerandevusistemi.data.local.dao.PolyclinicDao
-import com.example.hastanerandevusistemi.data.local.dao.UserDao
-import com.example.hastanerandevusistemi.data.local.repository.CityRepositoryImpl
-import com.example.hastanerandevusistemi.data.local.repository.DaysRepositoryImpl
-import com.example.hastanerandevusistemi.data.local.repository.DistrictRepositoryImpl
-import com.example.hastanerandevusistemi.data.local.repository.DoctorRepositoryImpl
-import com.example.hastanerandevusistemi.data.local.repository.HospitalRepositoryImpl
-import com.example.hastanerandevusistemi.data.local.repository.HourRepositoryImpl
-import com.example.hastanerandevusistemi.data.local.repository.PolyclinicRepositoryImpl
-import com.example.hastanerandevusistemi.data.local.repository.UserRepositoryImpl
-import com.example.hastanerandevusistemi.domain.repository.CityRepository
-import com.example.hastanerandevusistemi.domain.repository.DaysRepository
-import com.example.hastanerandevusistemi.domain.repository.DistrictRepository
-import com.example.hastanerandevusistemi.domain.repository.DoctorRepository
-import com.example.hastanerandevusistemi.domain.repository.HospitalRepository
-import com.example.hastanerandevusistemi.domain.repository.HourRepository
-import com.example.hastanerandevusistemi.domain.repository.PolyclinicRepository
-import com.example.hastanerandevusistemi.domain.repository.UserRepository
+import com.example.hastanerandevusistemi.data.local.dao.*
+import com.example.hastanerandevusistemi.data.local.repository.*
+import com.example.hastanerandevusistemi.domain.repository.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -120,5 +99,15 @@ class DatabaseModule {
     @Provides
     fun provideHourDao(appDatabase: AppDatabase): HourDao {
         return appDatabase.hourDao()
+    }
+
+    @Provides
+    fun provideHourDbRepositoryImpl(dao: AppointmentDao): AppointmentRepository {
+        return AppointmentRepositoryImpl(dao)
+    }
+
+    @Provides
+    fun provideAppointmentDao(appDatabase: AppDatabase): AppointmentDao {
+        return appDatabase.appointmentDao()
     }
 }

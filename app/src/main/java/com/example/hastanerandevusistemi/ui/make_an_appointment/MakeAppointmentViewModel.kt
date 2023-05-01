@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.hastanerandevusistemi.common.RequestState
 import com.example.hastanerandevusistemi.data.local.entities.*
+import com.example.hastanerandevusistemi.domain.model.Appointment
+import com.example.hastanerandevusistemi.domain.use_case.appointment.SaveAppointmentUseCase
 import com.example.hastanerandevusistemi.domain.use_case.city.GetAllCityUseCase
 import com.example.hastanerandevusistemi.domain.use_case.days.GetAllDayUseCase
 import com.example.hastanerandevusistemi.domain.use_case.district.GetAllDistrictUseCase
@@ -13,6 +15,7 @@ import com.example.hastanerandevusistemi.domain.use_case.doctor.GetAllDoctorUseC
 import com.example.hastanerandevusistemi.domain.use_case.hospital.GetHospitalUseCase
 import com.example.hastanerandevusistemi.domain.use_case.hour.GetAllHourUseCase
 import com.example.hastanerandevusistemi.domain.use_case.polyclinic.GetPoliklinikUseCase
+import com.example.hastanerandevusistemi.domain.use_case.user.GetUserByTcAndPasswordUseCase
 import com.example.hastanerandevusistemi.ui.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -29,7 +32,9 @@ class MakeAppointmentViewModel
     private var getPoliklinikUseCase: GetPoliklinikUseCase,
     private var getDoctorUseCase: GetAllDoctorUseCase,
     private var getDaysUseCase: GetAllDayUseCase,
-    private var getHourUseCase: GetAllHourUseCase
+    private var getHourUseCase: GetAllHourUseCase,
+    private var saveAppointmentUseCase: SaveAppointmentUseCase,
+    private var getUserByTcAndPasswordUseCase: GetUserByTcAndPasswordUseCase
 ) : BaseViewModel(application) {
     var city: MutableLiveData<List<CityEntity>?> = MutableLiveData()
     var district: MutableLiveData<List<DistrictEntity>?> = MutableLiveData()
@@ -38,6 +43,16 @@ class MakeAppointmentViewModel
     var doctor: MutableLiveData<List<DoctorEntity>?> = MutableLiveData()
     var date: MutableLiveData<List<DaysEntity>?> = MutableLiveData()
     var hour: MutableLiveData<List<HourEntity>?> = MutableLiveData()
+
+    var userId: MutableLiveData<Int?> = MutableLiveData()
+
+    var selectedCityId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDistrictId: MutableLiveData<Int> = MutableLiveData()
+    var selectedHospitalId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDepertmantId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDoctorId: MutableLiveData<Int> = MutableLiveData()
+    var selectedDateId: MutableLiveData<Int> = MutableLiveData()
+    var selectedHourId: MutableLiveData<Int> = MutableLiveData()
 
     fun getCityData() {
         getAllCityUseCase.invoke().onEach {
@@ -70,10 +85,6 @@ class MakeAppointmentViewModel
                 }
             }
         }.launchIn(viewModelScope)
-    }
-
-    fun randevuAl() {
-
     }
 
     fun getHospitalData(discId: Int) {
@@ -152,6 +163,63 @@ class MakeAppointmentViewModel
                 }
                 is RequestState.Success -> {
                     hour.value = it.data
+                    Log.d("TAG", "getData: Success")
+                }
+                is RequestState.Error -> {
+                    Log.d("TAG", "getData: Error")
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun observeAppointmentInfo() {
+
+    }
+
+    fun randevuAl(
+        userId: Int,
+        cityId: Int,
+        hospitalId: Int,
+        departmentId: Int,
+        doctorId: Int,
+        dateId: Int,
+        hourId: Int
+    ) {
+        val randevu: ArrayList<Appointment> = arrayListOf()
+        randevu.add(
+            Appointment(
+                userId,
+                cityId,
+                hospitalId,
+                departmentId,
+                doctorId,
+                dateId,
+                hourId
+            )
+        )
+        saveAppointmentUseCase.invoke(randevu).onEach {
+            when (it) {
+                is RequestState.Loading -> {
+                    Log.d("TAG", "randevuAl: Loading")
+                }
+                is RequestState.Success -> {
+                    Log.d("TAG", "randevuAl: Success")
+                }
+                is RequestState.Error -> {
+                    Log.d("TAG", "randevuAl: Error")
+                }
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    fun getUserInfo(int: Int, string: String) {
+        getUserByTcAndPasswordUseCase.invoke(int, string).onEach {
+            when (it) {
+                is RequestState.Loading -> {
+                    Log.d("TAG", "getData: Loading")
+                }
+                is RequestState.Success -> {
+                    userId.value = it.data?.id
                     Log.d("TAG", "getData: Success")
                 }
                 is RequestState.Error -> {
