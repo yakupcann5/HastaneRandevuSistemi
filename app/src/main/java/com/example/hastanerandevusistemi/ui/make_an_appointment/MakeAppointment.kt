@@ -138,7 +138,6 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO("Not yet implemented")
                 }
 
             }
@@ -180,7 +179,6 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO()
                 }
 
             }
@@ -222,7 +220,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO()
+
                 }
 
             }
@@ -264,7 +262,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO()
+
                 }
 
             }
@@ -306,7 +304,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO()
+
                 }
 
             }
@@ -348,7 +346,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO()
+
                 }
 
             }
@@ -392,7 +390,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-                    TODO()
+
                 }
 
             }

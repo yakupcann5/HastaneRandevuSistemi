@@ -13,6 +13,7 @@ import com.example.hastanerandevusistemi.domain.use_case.days.GetAllDayUseCase
 import com.example.hastanerandevusistemi.domain.use_case.district.GetAllDistrictUseCase
 import com.example.hastanerandevusistemi.domain.use_case.doctor.GetAllDoctorUseCase
 import com.example.hastanerandevusistemi.domain.use_case.hospital.GetHospitalUseCase
+import com.example.hastanerandevusistemi.domain.use_case.hour.ChangeHourValueUseCase
 import com.example.hastanerandevusistemi.domain.use_case.hour.GetAllHourUseCase
 import com.example.hastanerandevusistemi.domain.use_case.polyclinic.GetPoliklinikUseCase
 import com.example.hastanerandevusistemi.domain.use_case.user.GetUserByTcAndPasswordUseCase
@@ -34,7 +35,8 @@ class MakeAppointmentViewModel
     private var getDaysUseCase: GetAllDayUseCase,
     private var getHourUseCase: GetAllHourUseCase,
     private var saveAppointmentUseCase: SaveAppointmentUseCase,
-    private var getUserByTcAndPasswordUseCase: GetUserByTcAndPasswordUseCase
+    private var getUserByTcAndPasswordUseCase: GetUserByTcAndPasswordUseCase,
+    private var changeHourValueUseCase: ChangeHourValueUseCase
 ) : BaseViewModel(application) {
     var city: MutableLiveData<List<CityEntity>?> = MutableLiveData()
     var district: MutableLiveData<List<DistrictEntity>?> = MutableLiveData()
@@ -221,8 +223,24 @@ class MakeAppointmentViewModel
                 is RequestState.Loading -> {
                     Log.d("TAG", "randevuAl: Loading")
                 }
+
                 is RequestState.Success -> {
                     Log.d("TAG", "randevuAl: Success")
+                    changeHourValueUseCase.invoke(randevu[0]).onEach { result ->
+                        when (result) {
+                            is RequestState.Loading -> {
+                                Log.d("TAG", "randevuKaydet: Loading")
+                            }
+
+                            is RequestState.Success -> {
+                                Log.d("TAG", "randevuKaydet: Success")
+                            }
+
+                            is RequestState.Error -> {
+                                Log.d("TAG", "randevuKaydet: Error")
+                            }
+                        }
+                    }.launchIn(viewModelScope)
                 }
                 is RequestState.Error -> {
                     Log.d("TAG", "randevuAl: Error")

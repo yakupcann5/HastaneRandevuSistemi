@@ -13,4 +13,7 @@ interface HourDao {
 
     @Query("SELECT * FROM hour WHERE gunId = :dayId")
     suspend fun getAllHour(dayId: Int): List<HourEntity>
+
+    @Query("UPDATE hour SET selected = 0 WHERE gunId = :dayId AND value = :hourId")
+    suspend fun updateHour(dayId: Int, hourId: Int)
 }

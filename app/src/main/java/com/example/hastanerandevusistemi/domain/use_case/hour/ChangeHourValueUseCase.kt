@@ -1,20 +1,20 @@
 package com.example.hastanerandevusistemi.domain.use_case.hour
 
 import com.example.hastanerandevusistemi.common.RequestState
-import com.example.hastanerandevusistemi.data.local.entities.HourEntity
+import com.example.hastanerandevusistemi.domain.model.Appointment
 import com.example.hastanerandevusistemi.domain.repository.HourRepository
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetAllHourUseCase @Inject constructor(var hourRepository: HourRepository) {
-    operator fun invoke(dayId: Int) = flow {
-        emit(RequestState.Loading<List<HourEntity>>())
-        val result = hourRepository.getAllHour(dayId)
-        emit(RequestState.Success<List<HourEntity>>(result.filter { it.selected!! }))
+class ChangeHourValueUseCase @Inject constructor(private val hourRepository: HourRepository) {
+    operator fun invoke(randevu : Appointment) = flow {
+        emit(RequestState.Loading<Any>())
+        val result = hourRepository.updateHour(randevu.dayId!!, randevu.hourId!!)
+        emit(RequestState.Success<Any>(result))
     }.catch {
         emit(
-            RequestState.Error<List<HourEntity>>(
+            RequestState.Error<Any>(
                 it.localizedMessage ?: "An unexpected error occurred. Please try again later!"
             )
         )
