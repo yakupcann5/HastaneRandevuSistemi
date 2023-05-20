@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hastanerandevusistemi.R
@@ -56,6 +57,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
         when (v?.id) {
             binding.confirmButton.id -> {
                 observeSelectedAppointment()
+
             }
             binding.filterCloseButton.id -> {
                 findNavController().navigate(R.id.action_makeAppointment_to_home2)
@@ -113,6 +115,11 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
             }
         }
+        Toast.makeText(
+            requireContext(),
+            "Randevu alındı",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun getCityList() {
@@ -138,6 +145,10 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                 }
 
             }
@@ -175,10 +186,15 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     districtEntityList?.get(position)?.value?.let { it1 -> setHospital(it1) }
                     makeAppointmentViewModel.selectedDistrictId.value =
                         districtEntityList?.get(position)?.value
-                    makeAppointmentViewModel.selectedDistrictName.value = districtEntityList?.get(position)?.text
+                    makeAppointmentViewModel.selectedDistrictName.value =
+                        districtEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
                 }
 
             }
@@ -216,7 +232,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     hospitalEntityList?.get(position)?.value?.let { it1 -> setDepartment(it1) }
                     makeAppointmentViewModel.selectedHospitalId.value =
                         hospitalEntityList?.get(position)?.value
-                    makeAppointmentViewModel.selectedHospitalName.value = hospitalEntityList?.get(position)?.text
+                    makeAppointmentViewModel.selectedHospitalName.value =
+                        hospitalEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -258,7 +275,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     departmentEntityList?.get(position)?.value?.let { it1 -> setDoctor(it1) }
                     makeAppointmentViewModel.selectedDepertmantId.value =
                         departmentEntityList?.get(position)?.value
-                    makeAppointmentViewModel.selectedDepertmantName.value = departmentEntityList?.get(position)?.text
+                    makeAppointmentViewModel.selectedDepertmantName.value =
+                        departmentEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -300,7 +318,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     doctorEntityList?.get(position)?.value?.let { it1 -> setDay(it1) }
                     makeAppointmentViewModel.selectedDoctorId.value =
                         doctorEntityList?.get(position)?.value
-                    makeAppointmentViewModel.selectedDoctorName.value = doctorEntityList?.get(position)?.text
+                    makeAppointmentViewModel.selectedDoctorName.value =
+                        doctorEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -342,7 +361,8 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                     dayEntityList?.get(position)?.value?.let { it1 -> setHour(it1) }
                     makeAppointmentViewModel.selectedDateId.value =
                         dayEntityList?.get(position)?.value
-                    makeAppointmentViewModel.selectedDateName.value = dayEntityList?.get(position)?.text
+                    makeAppointmentViewModel.selectedDateName.value =
+                        dayEntityList?.get(position)?.text
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {

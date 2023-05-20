@@ -6,29 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.Home">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/randevuAl"
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/login_register_background"
+        app:layout_constraintBottom_toBottomOf="@id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewProfil"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="-25dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="@id/frame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Randevu Al"
+        android:layout_marginTop="250dp"
+        android:text="Lütfen Yapmak İstediğiniz İşlemi Seçiniz"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/profil"
-        android:layout_width="wrap_content"
+        android:id="@+id/randevuAl"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/ters_renk"
+        android:padding="20dp"
+        android:text="Randevu Al"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/profil"
+        app:layout_constraintEnd_toEndOf="@id/randevularım"
+        app:layout_constraintStart_toStartOf="@id/randevularım"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/profil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ters_renk"
+        android:padding="20dp"
         android:text="profil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/randevularım"
+        app:layout_constraintEnd_toEndOf="@id/randevularım"
+        app:layout_constraintStart_toStartOf="@id/randevuAl"
         app:layout_constraintTop_toBottomOf="@id/randevuAl" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/randevularım"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ters_renk"
+        android:padding="20dp"
         android:text="Randevularım"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profil" />

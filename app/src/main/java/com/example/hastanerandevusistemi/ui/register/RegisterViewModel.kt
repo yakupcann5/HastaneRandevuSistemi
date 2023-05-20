@@ -1,6 +1,5 @@
 package com.example.hastanerandevusistemi.ui.register
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.hastanerandevusistemi.common.RequestState
 import com.example.hastanerandevusistemi.domain.model.User
 import com.example.hastanerandevusistemi.domain.use_case.user.SaveUserUseCase
-import com.example.hastanerandevusistemi.ui.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

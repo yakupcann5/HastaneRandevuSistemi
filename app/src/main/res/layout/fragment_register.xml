@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:padding="30dp"
-            android:text="Hesabınıza Giriş Yapın"
+            android:text="Hesabınıza Kayıt Olun"
             android:textColor="@color/white"
             android:textSize="30sp"
             android:textStyle="bold"

@@ -36,7 +36,7 @@ class Profil : Fragment() {
 
     }
 
-    fun getUserInfo() {
+    private fun getUserInfo() {
         val userTc = arguments?.getInt("tc")
         val userPassword = arguments?.getString("password")
         profilViewModel.getUserInfo(userTc!!, userPassword!!)
@@ -49,7 +49,8 @@ class Profil : Fragment() {
                     binding.textViewName.text = it.data?.name
                     binding.textViewSurname.text = it.data?.surname
                     binding.textViewTc.text = it.data?.tc.toString()
-                    binding.textViewPassword.text = it.data?.password
+                    binding.textViewEmail.text = it.data?.email
+                    binding.textViewPassword.text = "***********"
                 }
                 is RequestState.Error -> {
 
