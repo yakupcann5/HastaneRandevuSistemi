@@ -145,10 +145,6 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                 }
 
             }
@@ -191,10 +187,6 @@ class MakeAppointment : Fragment(), View.OnClickListener {
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                 }
 
             }
