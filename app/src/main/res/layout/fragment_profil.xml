@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/textViewProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -130,6 +131,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="5dp"
@@ -154,12 +156,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logoutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/login_register_background"
+        android:padding="20dp"
+        android:text="Çıkış Yap"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/textViewProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textViewProfile" />
+
     <ImageView
         android:id="@+id/imageViewProfil"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
         android:layout_marginTop="-25dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/logo"
         app:layout_constraintBottom_toBottomOf="@id/frame"
         app:layout_constraintEnd_toEndOf="parent"

@@ -6,7 +6,7 @@ data class User(
     var id: Int,
     var name: String,
     var surname: String,
-    var tc: Int,
+    var tc: Long,
     var email: String,
     var password: String
 ) : java.io.Serializable {

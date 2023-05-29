@@ -18,7 +18,7 @@ class UserRepositoryImpl @Inject constructor(var userDao: UserDao) : UserReposit
         return userDao.getUserById(id)
     }
 
-    override suspend fun getUserByTCAndPassword(tc: Int, password: String): UserEntity {
+    override suspend fun getUserByTCAndPassword(tc: Long, password: String): UserEntity {
         return userDao.getUserByTCAndPassword(tc, password)
     }
 }

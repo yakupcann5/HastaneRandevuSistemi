@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetUserByTcAndPasswordUseCase @Inject constructor(private val userRepository: UserRepository) {
-    operator fun invoke(tc: Int, password: String) = flow {
+    operator fun invoke(tc: Long, password: String) = flow {
         emit(RequestState.Loading<UserEntity>())
         val result = userRepository.getUserByTCAndPassword(tc, password)
         if (result != null) {

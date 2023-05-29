@@ -17,5 +17,5 @@ data class UserEntity(
     @SerializedName("password")
     val password: String? = null,
     @SerializedName("tc")
-    val tc: Int? = null,
+    val tc: Long? = null,
 )

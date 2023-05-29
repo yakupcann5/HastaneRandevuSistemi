@@ -80,7 +80,7 @@ class MyAppointment : Fragment() {
     }
 
     private fun initView() {
-        val userTc = arguments?.getInt("tc")
+        val userTc = arguments?.getLong("tc")
         val userPassword = arguments?.getString("password")
         if (userTc != null) {
             if (userPassword != null) {

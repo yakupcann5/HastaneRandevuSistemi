@@ -15,6 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class Home : Fragment(), View.OnClickListener {
     private lateinit var binding: FragmentHomeBinding
     private val homeViewModel: HomeViewModel by viewModels()
+    var userId: Long = 0
+    var userPassword: String = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -25,7 +27,18 @@ class Home : Fragment(), View.OnClickListener {
     ): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         initView()
+        homeViewModel.getUserInfo()
+        observeLiveData()
         return binding.root
+    }
+
+    private fun observeLiveData() {
+        homeViewModel.userId.observe(viewLifecycleOwner) {
+            userId = it
+        }
+        homeViewModel.userPassword.observe(viewLifecycleOwner) {
+            userPassword = it
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,22 +55,22 @@ class Home : Fragment(), View.OnClickListener {
         when (v?.id) {
             binding.profil.id -> {
                 val bundle = Bundle().apply {
-                    putInt("tc", arguments?.getInt("tc")!!)
-                    putString("password", arguments?.getString("password")!!)
+                    putLong("tc", userId)
+                    putString("password", userPassword)
                 }
                 findNavController().navigate(R.id.action_home2_to_profil2, bundle)
             }
             binding.randevuAl.id -> {
                 val bundle = Bundle().apply {
-                    putInt("tc", arguments?.getInt("tc")!!)
-                    putString("password", arguments?.getString("password")!!)
+                    putLong("tc", userId)
+                    putString("password", userPassword)
                 }
                 findNavController().navigate(R.id.action_home2_to_makeAppointment, bundle)
             }
             binding.randevularM.id -> {
                 val bundle = Bundle().apply {
-                    putInt("tc", arguments?.getInt("tc")!!)
-                    putString("password", arguments?.getString("password")!!)
+                    putLong("tc", userId)
+                    putString("password", userPassword)
                 }
                 findNavController().navigate(R.id.action_home2_to_myAppointment, bundle)
             }

@@ -45,6 +45,7 @@ class MakeAppointmentViewModel
     var doctor: MutableLiveData<List<DoctorEntity>?> = MutableLiveData()
     var date: MutableLiveData<List<DaysEntity>?> = MutableLiveData()
     var hour: MutableLiveData<List<HourEntity>?> = MutableLiveData()
+    var appointmentSuccess: MutableLiveData<Boolean> = MutableLiveData()
 
     var userId: MutableLiveData<Int?> = MutableLiveData()
 
@@ -234,6 +235,7 @@ class MakeAppointmentViewModel
 
                             is RequestState.Success -> {
                                 Log.d("TAG", "randevuKaydet: Success")
+                                appointmentSuccess.value = true
                             }
 
                             is RequestState.Error -> {
@@ -249,7 +251,7 @@ class MakeAppointmentViewModel
         }.launchIn(viewModelScope)
     }
 
-    fun getUserInfo(int: Int, string: String) {
+    fun getUserInfo(int: Long, string: String) {
         getUserByTcAndPasswordUseCase.invoke(int, string).onEach {
             when (it) {
                 is RequestState.Loading -> {

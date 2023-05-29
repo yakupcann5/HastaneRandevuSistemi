@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.hastanerandevusistemi.common.RequestState
 import com.example.hastanerandevusistemi.domain.use_case.user.GetUserByTcAndPasswordUseCase
 import com.example.hastanerandevusistemi.ui.BaseViewModel
+import com.example.hastanerandevusistemi.util.MyPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -15,12 +16,13 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     application: Application,
+    private val myPreferences: MyPreferences,
     var getUserByTcAndPasswordUseCase: GetUserByTcAndPasswordUseCase
 ) : BaseViewModel(application) {
 
     var loginState : MutableLiveData<Boolean> = MutableLiveData()
 
-    fun getUserByTcAndPassword(tc: Int, password: String) {
+    fun getUserByTcAndPassword(tc: Long, password: String) {
         getUserByTcAndPasswordUseCase.invoke(tc, password).onEach {
             when (it) {
                 is RequestState.Loading -> {
@@ -38,5 +40,10 @@ class LoginViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
+    }
+
+    fun saveUserInfo(toInt: Long, toString: String) {
+        myPreferences.setLong("userId", toInt)
+        myPreferences.setString("userPassword", toString)
     }
 }

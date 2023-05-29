@@ -46,7 +46,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
 
     private fun initView() {
         makeAppointmentViewModel.getUserInfo(
-            arguments?.getInt("tc")!!,
+            arguments?.getLong("tc")!!,
             arguments?.getString("password")!!
         )
         binding.confirmButton.setOnClickListener(this)
@@ -120,6 +120,7 @@ class MakeAppointment : Fragment(), View.OnClickListener {
             "Randevu alındı",
             Toast.LENGTH_SHORT
         ).show()
+        findNavController().navigate(R.id.action_makeAppointment_to_home2)
     }
 
     private fun getCityList() {

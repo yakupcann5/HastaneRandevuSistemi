@@ -41,7 +41,7 @@ class MyAppointmentViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    fun getUserId(tc: Int, password: String) {
+    fun getUserId(tc: Long, password: String) {
         getUserByTcAndPasswordUseCase.invoke(tc, password).onEach {
             when (it) {
                 is RequestState.Loading -> {

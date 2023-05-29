@@ -31,7 +31,7 @@ class RegisterViewModel @Inject constructor(
                 0,
                 userName,
                 userSurname,
-                userTC.toInt(),
+                userTC.toLong(),
                 userEmail,
                 userPassword
             )

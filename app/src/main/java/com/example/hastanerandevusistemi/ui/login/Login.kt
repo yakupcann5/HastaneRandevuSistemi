@@ -56,14 +56,18 @@ class Login : Fragment(), View.OnClickListener {
         if (!binding.tcInput.text.isNullOrEmpty()) {
             if (!binding.passwordInput.text.isNullOrEmpty()) {
                 loginViewModel.getUserByTcAndPassword(
-                    binding.tcInput.text.toString().toInt(),
+                    binding.tcInput.text.toString().toLong(),
+                    binding.passwordInput.text.toString()
+                )
+                loginViewModel.saveUserInfo(
+                    binding.tcInput.text.toString().toLong(),
                     binding.passwordInput.text.toString()
                 )
                 loginViewModel.loginState.observe(viewLifecycleOwner) {
                     if (it) {
                         Toast.makeText(context, "giriş başarlı", Toast.LENGTH_SHORT).show()
                         val bundle = Bundle().apply {
-                            putInt("tc", binding.tcInput.text.toString().toInt())
+                            putLong("tc", binding.tcInput.text.toString().toLong())
                             putString("password", binding.passwordInput.text.toString())
                         }
                         findNavController().navigate(R.id.action_login_to_home2, bundle)
